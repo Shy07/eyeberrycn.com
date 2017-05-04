@@ -11,8 +11,8 @@ webpack = require 'webpack'
 webpackConfig =
   context: __dirname
   output:
-    publicPath: '/assets/'
-    path: __dirname + "/assets/"
+    publicPath: '/assets/dist'
+    path: __dirname + "/assets/dist"
     filename: "scripts.js"
 
   resolve:
