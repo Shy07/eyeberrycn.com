@@ -1,0 +1,5 @@
+name: eyeberry
+version: 1
+
+handle:
+- compress: if (%{RESP:Content-Length} >= 10240) compress
