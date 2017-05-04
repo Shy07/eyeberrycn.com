@@ -4,7 +4,8 @@
   "description": "web site for eyeberry",
   "main": "index.coffee",
   "scripts": {
-    "test": "build"
+    "test": "webpack-dev-server --config webpack.config.coffee",
+    "build": "webpack --config webpack.min.coffee"
   },
   "author": "Lynch HSU <Gernischt@gmail.com> (http://shy07.com/)",
   "license": "MIT",

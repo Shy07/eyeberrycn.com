@@ -14,9 +14,7 @@ require 'loading.sass'
 require '../js/jquery.easing.1.3.js'
 require '../js/smoothscroll.js'
 
-printf = require 'printf'
-
-Masonry = require 'masonry-layout'
+#LazyLoader = require 'LazyLoader'
 
 Modal = require 'modal'
 
@@ -136,31 +134,8 @@ Service = React.createClass
       </div>
     </div>
 
-ModalCont = React.createClass
-  componentDidMount: ->
-    $(ReactDOM.findDOMNode this.refs.grid).bind 'contextmenu', (e) -> false
-
-  initMasonry: ->
-    grid = ReactDOM.findDOMNode this.refs.grid
-    new Masonry grid,
-      itemSelector: '.grid-item'
-      # columnWidth: '.grid-item'
-      # animationOptions:
-      #   queue: true
-      #   duration: 100
-
-  render: ->
-    body = []
-    for i in [0..77]
-      filename = printf "%05d.jpg", i
-      body.push(
-        <div key={i} className="col-md-4 col-sm-6 grid-item" onLoad={this.initMasonry}>
-          <img className="img-responsive" style={borderRadius: 3} src="assets/img/gallery/#{filename}" alt="" />
-        </div>
-      )
-    <div ref="grid">
-      {body}
-    </div>
+#ModalCont = LazyLoader require 'bundle?lazy!modal_cont'
+ModalCont = require 'modal_cont'
 
 Dossier = React.createClass
   getInitialState: ->
@@ -198,7 +173,7 @@ Dossier = React.createClass
         cancel = "close"
         onCancel = {this.closeModal.bind this, 'galleryModal'}
         title="">
-        <ModalCont ref="galleryMasonry"/>
+        <ModalCont ref="galleryMasonry" collection="1st"/>
       </Modal>
     )
     <div id="dossier" name="dossier" className="table y100">
@@ -263,10 +238,10 @@ Team = React.createClass
             </div>
             <div className="col-md-3 centered">
               <img className="img img-circle" src="assets/img/team/lynn.jpg" height="120px" width="120px" alt="" />
-              <h4>Lynn Lu</h4>
+              <h4>Mabel Yang</h4>
               <p>Customer Service Supervisor<br/></p>
               <a href="skype:vivianshan.eyeberry?chat"><i className="fa fa-skype"></i></a>
-              <a href="mailto:lynnlu@eyeberryshanghai.com"><i className="fa fa-envelope"></i></a>
+              <a href="mailto:mabelyang@eyeberryshanghai.com"><i className="fa fa-envelope"></i></a>
             </div>
             <div className="col-lg-8 col-lg-offset-2 centered" style={'marginBottom':'0'}>
               <p className="large" style={marginTop: 20, marginBottom:0}>
