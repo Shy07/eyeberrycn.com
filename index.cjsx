@@ -15,7 +15,7 @@ ua.edge = ua.browser.name == 'Edge'
 LazyLoader = require 'LazyLoader'
 
 # MainPage = require 'main_page'
-MainPage = LazyLoader require 'bundle?lazy!main_page'
+MainPage = LazyLoader require 'bundle-loader?lazy!main_page'
 
 ReactDOM.render(
   <MainPage />

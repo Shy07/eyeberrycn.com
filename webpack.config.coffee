@@ -12,72 +12,73 @@ webpack = require 'webpack'
 webpackConfig =
   context: __dirname
   output:
-    publicPath: "http://localhost:8080/scripts/"
-    path: __dirname + "/dist/scripts"
-    filename: "bundle.js"
+    publicPath: 'http://localhost:8080/scripts/'
+    path: __dirname + '/dist/scripts'
+    filename: 'bundle.js'
+
+  devServer:
+    headers:
+      'Access-Control-Allow-Origin': '*'
 
   resolve:
     alias:
-      'jquery.ui.widget': "jquery.ui.widget/jquery.ui.widget.js"
+      'jquery.ui.widget': 'jquery.ui.widget/jquery.ui.widget.js'
 
-    modulesDirectories: [
+    modules: [
         'node_modules'
         'assets/src'
     ]
-    extensions: ['', '.js', '.jsx', '.cjsx', '.coffee']
+    extensions: ['*', '.js', '.jsx', '.cjsx', '.coffee']
 
   cache: true
-  debug: true
   devtool: false
   entry: [
-    "webpack-dev-server/client?http://0.0.0.0:8080"
+    'webpack-dev-server/client?http://0.0.0.0:8080'
     './index.cjsx'
   ]
   plugins: [
-    new webpack.DefinePlugin 'process.env.NODE_ENV': '"development"'
+    new webpack.DefinePlugin 'process.env.NODE_ENV': JSON.stringify 'development'
     new webpack.HotModuleReplacementPlugin()
+    new webpack.LoaderOptionsPlugin
+      debug: true
   ]
   stats:
     colors: true
     reasons: true
 
   module:
-    loaders: [
+    rules: [
       {
         test: /\.css$/
-        loader: 'style!css'
+        use: ['style-loader', 'css-loader']
       },{
         test: /\.sass$/
-        loaders: ["style", "css", "sass?indentedSyntax"]
+        use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax']
       }, {
         test: /\.gif/
-        loader: 'url-loader?limit=100000&minetype=image/gif'
+        use: ['url-loader?limit=100000&minetype=image/gif']
       }, {
         test: /\.jpg/
-        loader: 'url-loader?limit=100000&minetype=image/jpg'
+        use: ['url-loader?limit=100000&minetype=image/jpg']
       }, {
         test: /\.png/
-        loader: 'url-loader?limit=100000&minetype=image/png'
+        use: ['url-loader?limit=100000&minetype=image/png']
       },
       {
         test: /\.cjsx$/,
-        loaders: ['coffee', 'cjsx']
+        use: ['coffee-loader', 'cjsx-loader']
       },
       {
         test: /\.coffee$/,
-        loader: 'coffee'
+        use: ['coffee-loader']
       },
       {
         test: /\.(woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url-loader?limit=10000&minetype=application/font-woff"
+        use: ['url-loader?limit=10000&mimetype=application/font-woff']
       },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "file-loader"
-      },
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000'
+        use: ['file-loader']
       }
     ]
 
