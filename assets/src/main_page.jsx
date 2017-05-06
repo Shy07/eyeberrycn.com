@@ -5,13 +5,13 @@ import ReactDOM from 'react-dom';
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 
-import '../css/bootstrap.css';
-import '../css/font-awesome.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 import 'bootstrap';
 import 'main.sass';
 import 'loading.sass';
-import '../js/jquery.easing.1.3.js';
-import '../js/smoothscroll.js';
+import 'jquery.scrollto';
+import 'jquery.localscroll';
 
 import Navbar from './components/body/navbar';
 import Home from './components/body/home';
