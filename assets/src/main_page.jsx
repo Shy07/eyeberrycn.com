@@ -24,10 +24,10 @@ import Contact from './components/body/contact';
 class Body extends React.Component {
   componentDidMount() {
     if (ua.firefox) {
-      $(window).bind('resize', () => eles = $('.y100').css('height', '100vh'));
+      $(window).bind('resize', () => $('.y100').css('height', '100vh'));
       $(window).resize();
     }
-    if (ua.edge) eles = $('hr').css('left', 0);
+    if (ua.edge) $('hr').css('left', 0);
     $(ReactDOM.findDOMNode(this.refs.body)).fadeIn(1200);
   }
   render() {
