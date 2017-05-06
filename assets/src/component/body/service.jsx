@@ -40,4 +40,4 @@ class Service extends React.Component {
   }
 }
 
-module.exports = Service;
+export default Service;

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 // (window != window.top ? window.top : window).React = React;
 import jQuery from 'jquery';
-window.jQuery = jQuery
+window.jQuery = jQuery;
 window.$ = jQuery;
 
 import UAParser from 'ua-parser-js';
@@ -14,13 +14,7 @@ ua.edge = ua.browser.name == 'Edge';
 
 import LazyLoader from 'LazyLoader';
 
-// let MainPage = LazyLoader(require('bundle-loader?lazy!main_page'));
-
-import MainPage from 'main_page';
-
 ReactDOM.render(
-  <MainPage />,
+  <LazyLoader componentToBeLoaded={() => System.import('main_page')} />,
   document.getElementById('content')
 );
-
-module.exports = {};

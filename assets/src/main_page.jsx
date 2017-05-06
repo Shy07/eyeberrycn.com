@@ -5,17 +5,13 @@ import ReactDOM from 'react-dom';
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 
-require('../css/bootstrap.css');
-require('../css/font-awesome.css');
-require('bootstrap');
-
-require('main.sass');
-require('loading.sass');
-
-require('../js/jquery.easing.1.3.js');
-require('../js/smoothscroll.js');
-
-//import LazyLoader from 'LazyLoader'
+import '../css/bootstrap.css';
+import '../css/font-awesome.css';
+import 'bootstrap';
+import 'main.sass';
+import 'loading.sass';
+import '../js/jquery.easing.1.3.js';
+import '../js/smoothscroll.js';
 
 import Navbar from './component/body/navbar';
 import Home from './component/body/home';
@@ -49,4 +45,4 @@ class Body extends React.Component {
   }
 }
 
-module.exports = Body
+export default Body;

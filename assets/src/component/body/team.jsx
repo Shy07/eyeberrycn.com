@@ -53,4 +53,4 @@ class Team extends React.Component {
   }
 }
 
-module.exports = Team;
+export default Team;
