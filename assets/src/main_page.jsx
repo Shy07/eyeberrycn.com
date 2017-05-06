@@ -13,13 +13,13 @@ import 'loading.sass';
 import '../js/jquery.easing.1.3.js';
 import '../js/smoothscroll.js';
 
-import Navbar from './component/body/navbar';
-import Home from './component/body/home';
-import About from './component/body/about';
-import Service from './component/body/service';
-import Gallery from './component/body/gallery';
-import Team from './component/body/team';
-import Contact from './component/body/contact';
+import Navbar from './components/body/navbar';
+import Home from './components/body/home';
+import About from './components/body/about';
+import Service from './components/body/service';
+import Gallery from './components/body/gallery';
+import Team from './components/body/team';
+import Contact from './components/body/contact';
 
 class Body extends React.Component {
   componentDidMount() {
